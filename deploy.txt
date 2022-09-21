@@ -1,0 +1,37 @@
+- crear cuenta en heroku
+
+- Nuevo projecto - new -> create neew app
+  nombre único
+  region usa
+- create app
+
+- Resources
+  - PostgreSQL 
+  free acount
+    - settings -> database credentials
+
+
+application.properties
+
+
+spring.jpa.hibernate.ddl-auto=create
+
+spring.jpa.properties.hibernate.dialect=org.hibernate.dialect.PostgreSQL10Dialect
+
+spring.datasource.url=postgres://vveauutcnnvrgf:cd3b01d0e23d660864859e151de4657d847feeeda358b926a1841f187bed7537@ec2-23-23-182-238.compute-1.amazonaws.com:5432/d1mv26fvjkf6oq
+spring.datasource.username=vveauutcnnvrgf
+spring.datasource.password=cd3b01d0e23d660864859e151de4657d847feeeda358b926a1841f187bed7537
+spring.jpa.show-sql=true
+
+logging.level.org.hibernate.SQL=DEBUG
+logging.level.org.hibernate.type=TRACE
+
+
+--- Descargar PostgreSQL driver for spring
+implementation 'org.postgresql:postgresql:42.5.0'
+
+
+- create new File -> Procfile
+java -jar -Dserver.port=$PORT build/libs/GenerationCohorte-0.0.1-SNAPSHOT.jar
+
+- cambiar versión de Java a 1.8
